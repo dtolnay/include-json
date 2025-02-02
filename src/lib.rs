@@ -1,3 +1,36 @@
+//! Rust macro to parse a JSON file at compile time and compile it into the
+//! program as a `serde_json::Value`.
+//!
+//! Example &mdash; supplying a JSON file as context inside a [MiniJinja]
+//! template:
+//!
+//! [MiniJinja]: https://github.com/mitsuhiko/minijinja
+//!
+//! ```rust
+//! # macro_rules! include_json {
+//! #     (concat!(env!("CARGO_MANIFEST_DIR"), $path:expr)) => {
+//! #         ::include_json::include_json!(concat!(env!("CARGO_MANIFEST_DIR"), "/examples", $path))
+//! #     };
+//! # }
+//! #
+//! # macro_rules! include_str {
+//! #     ($path:expr) => {
+//! #         ::std::include_str!(concat!(env!("CARGO_MANIFEST_DIR"), "/examples/", $path))
+//! #     };
+//! # }
+//! #
+//! use include_json::include_json;
+//!
+//! fn main() {
+//!     let pkg = include_json!(concat!(env!("CARGO_MANIFEST_DIR"), "/package.json"));
+//!
+//!     let mut env = minijinja::Environment::new();
+//!     env.add_template("example", include_str!("example.jinja")).unwrap();
+//!     let tmpl = env.get_template("example").unwrap();
+//!     println!("{}", tmpl.render(minijinja::context!(pkg)).unwrap());
+//! }
+//! ```
+
 use macro_string::MacroString;
 use proc_macro::TokenStream;
 use proc_macro2::{Span, TokenStream as TokenStream2};
