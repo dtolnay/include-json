@@ -31,6 +31,8 @@
 //! }
 //! ```
 
+#![doc(html_root_url = "https://docs.rs/include_json/0.0.0")]
+
 use macro_string::MacroString;
 use proc_macro::TokenStream;
 use proc_macro2::{Span, TokenStream as TokenStream2};
