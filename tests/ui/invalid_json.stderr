@@ -1,4 +1,4 @@
-error: lone leading surrogate in hex escape at line 2 column 9
+error: lone leading surrogate in hex escape at line 2 column 9 $DIR/target/tests/trybuild/include_json/../../../../tests/ui/invalid_json.json
  --> tests/ui/invalid_json.rs:4:13
   |
 4 |     let _ = include_json!(concat!(env!("CARGO_MANIFEST_DIR"), "/../../../../tests/ui/invalid_json.json"));
