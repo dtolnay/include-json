@@ -79,7 +79,12 @@ fn do_include_json(path: &str) -> Result<TokenStream2> {
 
     let json: Value = match serde_json::from_slice(&content) {
         Ok(json) => json,
-        Err(err) => return Err(Error::new(Span::call_site(), err)),
+        Err(err) => {
+            return Err(Error::new(
+                Span::call_site(),
+                format!("{} {}", err, path.display()),
+            ));
+        }
     };
 
     Ok(PrintValue(&json).into_token_stream())
