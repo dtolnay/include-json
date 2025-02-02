@@ -1,0 +1,12 @@
+{
+    "null": null,
+    "true": true,
+    "false": false,
+    "posint": 10,
+    "negint": -10,
+    "float": 10.0,
+    "string": "...",
+    "emptyarray": [],
+    "array": [1, 2, 3],
+    "emptyobject": {}
+}
