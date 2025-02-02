@@ -1,0 +1,7 @@
+error: No such file or directory (os error 2)
+ --> tests/ui/no_such_file.rs:4:13
+  |
+4 |     let _ = include_json!(concat!(env!("CARGO_MANIFEST_DIR"), "/nonexistent.json"));
+  |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+  = note: this error originates in the macro `include_json` (in Nightly builds, run with -Z macro-backtrace for more info)
