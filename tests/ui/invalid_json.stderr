@@ -1,0 +1,7 @@
+error: lone leading surrogate in hex escape at line 2 column 9
+ --> tests/ui/invalid_json.rs:4:13
+  |
+4 |     let _ = include_json!(concat!(env!("CARGO_MANIFEST_DIR"), "/../../../../tests/ui/invalid_json.json"));
+  |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+  = note: this error originates in the macro `include_json` (in Nightly builds, run with -Z macro-backtrace for more info)
