@@ -1,0 +1,7 @@
+error: a relative path is not supported; use `include_json!(concat!(env!("CARGO_MANIFEST_DIR"), ...))`
+ --> tests/ui/relative_path.rs:4:13
+  |
+4 |     let _ = include_json!("tests/relativepath.json");
+  |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+  = note: this error originates in the macro `include_json` (in Nightly builds, run with -Z macro-backtrace for more info)

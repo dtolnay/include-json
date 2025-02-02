@@ -3,7 +3,7 @@ use serde_json::json;
 
 #[test]
 fn test() {
-    let actual = include_json!("tests/test.json");
+    let actual = include_json!(concat!(env!("CARGO_MANIFEST_DIR"), "/tests/test.json"));
     let expected = json!({
         "null": null,
         "true": true,

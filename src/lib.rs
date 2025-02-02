@@ -37,6 +37,7 @@ use proc_macro2::{Span, TokenStream as TokenStream2};
 use quote::{quote, ToTokens};
 use serde_json::Value;
 use std::fs;
+use std::path::Path;
 use syn::{parse_macro_input, Error, Result};
 
 #[proc_macro]
@@ -48,9 +49,22 @@ pub fn include_json(input: TokenStream) -> TokenStream {
 }
 
 fn do_include_json(path: &str) -> Result<TokenStream2> {
+    let path = Path::new(path);
+    if path.is_relative() {
+        return Err(Error::new(
+            Span::call_site(),
+            "a relative path is not supported; use `include_json!(concat!(env!(\"CARGO_MANIFEST_DIR\"), ...))`",
+        ));
+    }
+
     let content = match fs::read(path) {
         Ok(content) => content,
-        Err(err) => return Err(Error::new(Span::call_site(), format!("{err} {path}"))),
+        Err(err) => {
+            return Err(Error::new(
+                Span::call_site(),
+                format!("{} {}", err, path.display()),
+            ));
+        }
     };
 
     let json: Value = match serde_json::from_slice(&content) {
