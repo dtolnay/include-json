@@ -7,6 +7,18 @@
 //! [MiniJinja]: https://github.com/mitsuhiko/minijinja
 //!
 //! ```rust
+//! # macro_rules! include_json {
+//! #     (concat!(env!("CARGO_MANIFEST_DIR"), $path:expr)) => {
+//! #         ::include_json::include_json!(concat!(env!("CARGO_MANIFEST_DIR"), "/examples", $path))
+//! #     };
+//! # }
+//! #
+//! # macro_rules! include_str {
+//! #     ($path:expr) => {
+//! #         ::std::include_str!(concat!(env!("CARGO_MANIFEST_DIR"), "/examples/", $path))
+//! #     };
+//! # }
+//! #
 //! use include_json::include_json;
 //!
 //! fn main() {
