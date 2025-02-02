@@ -48,7 +48,7 @@ pub fn include_json(input: TokenStream) -> TokenStream {
 }
 
 fn do_include_json(path: &str) -> Result<TokenStream2> {
-    let content = match fs::read(&path) {
+    let content = match fs::read(path) {
         Ok(content) => content,
         Err(err) => return Err(Error::new(Span::call_site(), err)),
     };
