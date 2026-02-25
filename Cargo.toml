@@ -1,6 +1,6 @@
 [package]
 name = "include_json"
-version = "0.1.1"
+version = "0.1.2"
 authors = ["David Tolnay <dtolnay@gmail.com>"]
 description = "Parse JSON file at compile time and embed as serde_json::Value"
 documentation = "https://docs.rs/include_json"
