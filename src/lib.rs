@@ -52,14 +52,15 @@ use syn::{parse_macro_input, Error, Result};
 
 #[proc_macro]
 pub fn include_json(input: TokenStream) -> TokenStream {
-    let MacroString(path) = parse_macro_input!(input);
-    do_include_json(&path)
+    let path_expr = parse_macro_input!(input as MacroString);
+    do_include_json(&path_expr)
         .unwrap_or_else(syn::Error::into_compile_error)
         .into()
 }
 
-fn do_include_json(path: &str) -> Result<TokenStream2> {
-    let path = Path::new(path);
+fn do_include_json(path_expr: &MacroString) -> Result<TokenStream2> {
+    let path_str = path_expr.eval()?;
+    let path = Path::new(&path_str);
     if path.is_relative() {
         return Err(Error::new(
             Span::call_site(),
