@@ -13,11 +13,11 @@ rust-version = "1.71"
 proc-macro = true
 
 [dependencies]
-macro-string = "0.2"
+macro-string = "0.3"
 proc-macro2 = "1"
 quote = "1"
 serde_json = "1"
-syn = { version = "2", default-features = false, features = ["parsing", "proc-macro"] }
+syn = { version = "3", default-features = false, features = ["parsing", "proc-macro"] }
 
 [dev-dependencies]
 minijinja = "2.7"
