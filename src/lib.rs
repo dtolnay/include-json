@@ -35,7 +35,8 @@
 //!     let mut env = minijinja::Environment::new();
 //!     env.add_template("example", include_str!("example.jinja")).unwrap();
 //!     let tmpl = env.get_template("example").unwrap();
-//!     println!("{}", tmpl.render(minijinja::context!(pkg)).unwrap());
+//!     let ctx = minijinja::context!(pkg => minijinja::value::Serde(pkg));
+//!     println!("{}", tmpl.render(ctx).unwrap());
 //! }
 //! ```
 
