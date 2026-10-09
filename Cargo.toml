@@ -20,7 +20,7 @@ serde_json = "1"
 syn = { version = "3", default-features = false, features = ["parsing", "proc-macro"] }
 
 [dev-dependencies]
-minijinja = "2.7"
+minijinja = { version = "3", features = ["serde"] }
 rustversion = "1.0.19"
 trybuild = { version = "1.0.108", features = ["diff"] }
 
