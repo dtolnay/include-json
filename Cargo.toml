@@ -22,7 +22,7 @@ syn = { version = "3", default-features = false, features = ["parsing", "proc-ma
 [dev-dependencies]
 minijinja = { version = "3", features = ["serde"] }
 rustversion = "1.0.19"
-trybuild = { version = "1.0.108", features = ["diff"] }
+trybuild = { version = "1.0.125", features = ["diff"] }
 
 [package.metadata.docs.rs]
 targets = ["x86_64-unknown-linux-gnu"]
